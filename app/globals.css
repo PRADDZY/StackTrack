@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.5rem;
+    --contrast-modifier: 1;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 262.1 83.3% 57.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Apply contrast modifier to text and backgrounds */
+.text-foreground {
+  color: hsl(var(--foreground) / calc(var(--contrast-modifier) * 1)) !important;
+}
+
+.bg-background {
+  background-color: hsl(var(--background) / calc(var(--contrast-modifier) * 1)) !important;
+}
+
+.text-primary {
+  color: hsl(var(--primary) / calc(var(--contrast-modifier) * 1)) !important;
+}
+
+.bg-primary {
+  background-color: hsl(var(--primary) / calc(var(--contrast-modifier) * 1)) !important;
+}
+
+/* Neon effects */
+.neon-text {
+  text-shadow: 0 0 5px rgba(162, 89, 255, 0.8), 0 0 10px rgba(162, 89, 255, 0.5);
+}
+
+.neon-border {
+  box-shadow: 0 0 5px rgba(162, 89, 255, 0.8), 0 0 10px rgba(162, 89, 255, 0.5);
+}
+
+.neon-glow {
+  filter: drop-shadow(0 0 5px rgba(162, 89, 255, 0.8)) drop-shadow(0 0 10px rgba(162, 89, 255, 0.5));
+}
+
+/* Light mode specific styles */
+:root {
+  --card-bg-light: rgba(255, 255, 255, 0.7);
+  --card-bg-dark: rgba(0, 0, 0, 0.2);
+}
+
+.light .backdrop-blur-sm.bg-white\/10 {
+  background-color: var(--card-bg-light);
+}
+
+.dark .backdrop-blur-sm.bg-black\/20 {
+  background-color: var(--card-bg-dark);
+}
+
+/* Improve chart readability in light mode */
+.light .recharts-cartesian-grid-horizontal line,
+.light .recharts-cartesian-grid-vertical line {
+  stroke: rgba(0, 0, 0, 0.2);
+}
+
+.light .recharts-text {
+  fill: rgba(0, 0, 0, 0.7);
+}
+
+/* Ensure text is readable in light mode */
+.light .text-muted-foreground {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.light .bg-accent\/50 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
