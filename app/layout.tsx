@@ -8,9 +8,9 @@ import Navbar from "@/components/navbar"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Neon Portfolio",
-  description: "A neon-themed stock portfolio dashboard",
-    generator: 'v0.dev'
+  title: "StackTrack",
+  description: "Where your stocks shine brighter",
+    generator: 'PRADDZY'
 }
 
 export default function RootLayout({
